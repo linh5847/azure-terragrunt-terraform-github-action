@@ -51,7 +51,7 @@ remote_state {
     storage_account_name = "vntechsolacc"
     container_name       = "vntechsolcon"
     key                  = "${path_relative_to_include()}/terraform.tfstate"
-    access_key           = ""
+    access_key           = "yEx1Z8QuCcrbGXs+NXmPW742N47RYTU6ioNFdF9rxmxFQG51vB0sKDIwfqlQJY2lx9oZSHqiGmhv+AStYNfMJQ=="
   }
   generate = {
     path      = "backend.tf"
