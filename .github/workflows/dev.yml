@@ -1,0 +1,60 @@
+name: "Create_Development_Environment"
+on:
+  push:
+    branches:
+      - main
+
+env:
+  WORKING_DIRECTORY: "./dev"
+  ARM_CLIENT_ID: ${{ secrets.DEV_ARM_CLIENT_ID }}
+  ARM_CLIENT_SECRET: ${{ secrets.DEV_ARM_CLIENT_SECRET }}
+  ARM_SUBSCRIPTION_ID: ${{ secrets.DEV_ARM_SUBSCRIPTION_ID }}
+  ARM_TENANT_ID: ${{ secrets.DEV_ARM_TENANT_ID }}
+
+jobs:
+  plan:
+    name: "Terragrunt"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@master
+
+      - uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.0.0
+          terraform_wrapper: false
+
+      - name: Setup Terragrunt
+        uses: autero1/action-terragrunt@v1.1.0
+        with:
+          terragrunt_version: 0.37.1
+
+      - name: Interact with Terragrunt
+        run: terragrunt --version
+
+      - name: "Terragrunt Init"
+        run: terragrunt run-all init --terragrunt-non-interactive
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+
+      - name: "Terragrunt Plan"
+        run: terragrunt run-all plan --terragrunt-non-interactive
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+  deployment:
+    needs: plan
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@master
+
+      - uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.0.0
+          terraform_wrapper: false
+
+      - name: Setup Terragrunt
+        uses: autero1/action-terragrunt@v1.1.0
+        with:
+          terragrunt_version: 0.37.1
+      - name: "Terragrunt Apply"
+        run: terragrunt run-all apply --terragrunt-non-interactive
+        working-directory: ${{ env.WORKING_DIRECTORY }}
