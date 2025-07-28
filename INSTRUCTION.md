@@ -42,3 +42,5 @@ For example.
 plan.yml
 apply.yml
 destroy.yml
+
+https://blog.devops.dev/setting-up-ci-cd-for-terragrunt-with-github-actions-65684b42f2c4 = terragrunt
