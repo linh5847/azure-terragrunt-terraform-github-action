@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: gitlab-credz
+  namespace: springboot
+data:
+  password: Z2xwYXQtUURxZTNmdHoybzhUNERvOEhKRks=
+  username: Z2l0bGFiLWFjY2Vzcy10b2tlbg==
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: maven-java-springboot
+  namespace: springboot
+spec:
+  interval: 5m
+  url: https://gitlab.com/gitlab-kas/k8s/vntechsol/maven-java-springboot
+  ref:
+    branch: main
+  secretRef:
+    name: gitlab-credz
+  ignore: |-
+    # exclude all
+    /*
+    # include charts directory
+    !/charts/ 

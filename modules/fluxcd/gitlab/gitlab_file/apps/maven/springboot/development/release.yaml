@@ -1,0 +1,17 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: springboot
+  namespace: springboot
+spec:
+  interval: 50m
+  releaseName: springboot
+  chart:
+    spec:
+      chart: charts/springboot
+      sourceRef:
+        kind: GitRepository
+        name: maven-java-springboot
+  valuesFrom:
+    - kind: ConfigMap
+      name: springboot-values
