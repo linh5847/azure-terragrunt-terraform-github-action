@@ -1,0 +1,21 @@
+name: "Build_TF_Plan"
+on:
+  workflow_call:
+    inputs:
+      path:
+        description: "Specifies the path of the root terraform module."
+        required: true
+        type: string
+    secrets:
+      arm_client_id:
+        description: "Specifies the Azure ARM CLIENT ID."
+        required: true
+      arm_client_secret:
+        description: "Specifies the Azure ARM CLIENT SECRET."
+        required: true
+      arm_subscription_id:
+        description: "Specifies the Azure ARM SUBSCRIPTION ID."
+        required: true
+      arm_tenant_id:
+        description: "Specifies the Azure ARM TENANT ID."
+        required: true
