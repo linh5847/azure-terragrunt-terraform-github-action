@@ -23,7 +23,7 @@ jobs:
     uses: linh5847/azure-terragrunt-terraform-github-action/.github/workflows/az_tf_apply.yml@main
     with:
       path: dev ## Path to terraform root module (Required)
-      tgh_environment: dev ## GH Environment. Default=null - (Optional)
+      gh_environment: dev ## GH Environment. Default=null - (Optional)
     secrets:
       arm_client_id: ${{ secrets.DEV_ARM_CLIENT_ID }} ## ARM Client ID
       arm_client_secret: ${{ secrets.DEV_ARM_CLIENT_SECRET }} ## ARM Client Secret
