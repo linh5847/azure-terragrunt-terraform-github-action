@@ -53,7 +53,7 @@ jobs:
       - name: Setup Terragrunt
         uses: autero1/action-terragrunt@v1.1.0
         with:
-          terragrunt_version: 0.78.4
+          terragrunt_version: 0.37.1
       - name: "Terragrunt Apply"
         run: terragrunt run-all apply --terragrunt-non-interactive
         working-directory: ${{ inputs.path }}
