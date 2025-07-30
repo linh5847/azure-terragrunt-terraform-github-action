@@ -165,4 +165,4 @@ git merge features/add-security-group
 Recommend to perform this using internet browser GUI instead, as we must wait for an approval from the viewer.
 ```
 
-<img title="Merge Feature branch to development" alt="Alt text" src="/images/feature-branch-to-development.png">
+<img title="Merge-Feature-branch-to-development" alt="Alt text" src="/images/feature-branch-to-development.png">
