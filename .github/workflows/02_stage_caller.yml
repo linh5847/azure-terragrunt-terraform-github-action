@@ -22,7 +22,7 @@ jobs:
       arm_tenant_id: ${{ secrets.STAGE_ARM_TENANT_ID }}
 
   Deploy_Stage:
-    needs: [Plan_Stage, Deploy_Dev]
+    needs: [Plan_Stage]
     uses: linh5847/azure-terragrunt-terraform-github-action/.github/workflows/az_tf_apply.yml@staging
     with:
       path: stage
