@@ -125,7 +125,7 @@ az_tf_plan
 az_tf_apply
 ```
 
-In my case. When the callers executor. It will run the Terraform Plan via Terragrunt and requests for approval.
+In my case. When the callers is executing. It is fetching the executor and run jobs. It will run the Terraform Plan via Terragrunt and request for an approval.
 
 <img title="Approval Request" alt="Alt text" src="/images/review.png">
 
@@ -135,3 +135,7 @@ Need to click on the **Review deployments**
 
 Select **Reject** or **Approve and deploy** options.
 <img title="Approval" alt="Alt text" src="/images/approval.png">
+
+<img title="Approval" alt="Alt text" src="/images/deploy_progress.png">
+
+<img title="Approval" alt="Alt text" src="/images/deploy_success.png">
