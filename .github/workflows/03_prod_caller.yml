@@ -22,7 +22,7 @@ jobs:
       arm_tenant_id: ${{ secrets.PROD_ARM_TENANT_ID }}
 
   Deploy_Prod:
-    needs: [Plan_Prod]
+    needs: [Plan_Prod] # Depending on the plan
     uses: linh5847/azure-terragrunt-terraform-github-action/.github/workflows/az_tf_apply.yml@main
     with:
       path: prod
