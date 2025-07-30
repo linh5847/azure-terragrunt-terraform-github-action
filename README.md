@@ -34,18 +34,9 @@ The important values of TerraGrunt is a set of different environment folder with
 
 The TerraGrunt **root.hcl** will always live under the **Git Repository** root folder to control the relevant activity within the TerraGrunt execution so that the subfolder will inherit and display the output result.
 
-Resources = https://github.com/gruntwork-io/terragrunt-infrastructure-live-example
-https://ervinszilagyi.dev/articles/terragrunt-for-multi-region-multi-account-deployments.html
-
-github-action = https://dev.to/pwd9000/multi-environment-azure-deployments-with-terraform-and-github-2450
-
-https://dev.to/willvelida/deploying-to-azure-with-terraform-and-github-actions-5191
-
 ## Operation:
 
 Terragrunt CLI = https://terragrunt.gruntwork.io/docs/reference/cli-options/
-
-git clone https://gitlab.com/gitlab-kas/k8s/vntechsol/terragrunt_iac.git    # Remember to insert gitlab token name and token
 
 cd dev
 terragrunt run test --all
