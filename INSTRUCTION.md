@@ -145,6 +145,7 @@ Deployment is successful.
 The deployment process by first checkout the feature branch add in files. Submit back and wait for approval. Merge to either **development** if it is intending to be deployed to this environment. Alternatively, **staging** and **main** branches.
 
 <img title="All Environments" alt="Alt text" src="/images/3_envs.png">
+
 ```
 git branch
 git checkout main
