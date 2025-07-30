@@ -1,6 +1,9 @@
 name: "02_stage_caller"
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - staging
 
 jobs:
   Plan_Stage:

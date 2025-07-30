@@ -1,6 +1,9 @@
 name: "03_prod_caller"
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   Plan_Prod:

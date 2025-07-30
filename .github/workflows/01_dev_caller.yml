@@ -1,6 +1,9 @@
 name: "01_dev_caller"
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - development
 
 jobs:
   Plan_Dev:
