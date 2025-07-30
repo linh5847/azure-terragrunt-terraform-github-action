@@ -1,9 +1,10 @@
 There are few tasks need to complete before the GitHub Action CI/CD can take over.
 
-1. Whether to manually create the foolowing.
+1. Whether to manually create the following.
 
 Azure-Resource-Group
 Azure-Storage-Account
+Azure-App-Registration  for service principal.
 Azure-KeyVault
     KeyVault-Secret for ie
 
@@ -18,7 +19,19 @@ https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows
 
 setting->Secrets and variables->Actions->Repository secrets->New repository secret
 
-If it is one off or one environment only. Performing this step.
+NOTE: This demo is a multiple environment. Therefore, you need to come up with the name convention for repository secret.
+
+DEV_ARM_CLIENT_ID
+DEV_ARM_CLIENT_SECRET
+DEV_ARM_SUBSCRIPTION_ID
+DEV_ARM_TENANT_ID
+
+STAGE_ARM_CLIENT_ID
+STAGE_ARM_CLIENT_SECRET
+STAGE_ARM_SUBSCRIPTION_ID
+STAGE_ARM_TENANT_ID
+
+If you are assuming that just having one ie ARM_CLIENT_ID and work for all, when there are multiple tenant.
 
 Creating Environment
 
@@ -32,15 +45,15 @@ prod
 
 NOTE: GitHub environments and Protection Rules are available on public repos, but for private repos you will need GitHub Enterprise.
 
-Add Secret. Under the **Environment secrets**. Click **Add environment secret**
 
-DEV_ARM_CLIENT_ID, etc. Same way as adding secret above.
 
 Now, create a **.github/workflows** folder and place in the YAML file for CI/CD pipeline in GitHub Action.
 
 For example.
-plan.yml
-apply.yml
-destroy.yml
+01_dev_caller.yml           # When user click on GitHub Action. Left panel click ie 01_dev_caller
+02_stage_caller.yml
+03_prod_caller.yml
+az_tf_plan.yml
+az_tf_apply.yml
 
-https://blog.devops.dev/setting-up-ci-cd-for-terragrunt-with-github-actions-65684b42f2c4 = terragrunt
+<img title="Development Environment Approval Request" alt="Alt text" src="/images/1.png">
