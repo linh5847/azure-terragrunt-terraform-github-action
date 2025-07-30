@@ -1,4 +1,4 @@
-name: "caller"
+name: "03_prod_caller"
 on:
   workflow_dispatch:
 
