@@ -145,3 +145,23 @@ Deployment is successful.
 The deployment process by first checkout the feature branch add in files. Submit back and wait for approval. Merge to either **development** if it is intending to be deployed to this environment. Alternatively, **staging** and **main** branches.
 
 <img title="All Environments" alt="Alt text" src="/images/3_envs.png">
+```
+git branch
+git checkout main
+git checkout -b features/add-security-group
+
+add file and submit back.
+
+git add .
+git commit -am 'add terraform-security-group'
+git push --set-upstream origin features/add-security-group
+
+wait for 2 or 3 minutes and keep refreshing the GitHub Action internet browser to see anything running. It should not, as it is a **features** branch. GitHub Action has been configured to monitor and automatically run when merge into **development**, **staging** and **main**
+
+git checkout development
+git merge features/add-security-group
+
+Recommend to perform this using internet browser GUI instead, as we must wait for an approval from the viewer.
+```
+
+<img title="Merge Feature branch to development" alt="Alt text" src="/images/feature-branch-to-development.png">
