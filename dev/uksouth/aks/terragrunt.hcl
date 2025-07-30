@@ -56,6 +56,10 @@ inputs = {
       delegation_name           = "aks-virtualNode-delegation"
       service_delegation_name   = "Microsoft.ContainerInstance/containerGroups"
       actions                   = ["Microsoft.Network/virtualNetworks/subnets/join/action"]
+    },
+    public_security_group = {
+      enabled             = true
+      security_group_name = "publicSG"
     }
   }
 }

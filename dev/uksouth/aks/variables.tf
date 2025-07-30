@@ -51,6 +51,10 @@ variable "config" {
       delegation_name           = string
       service_delegation_name   = string
       actions                   = list(string)
+    }),
+    public_security_group = object({
+      enabled             = bool
+      security_group_name = string
     })
   })
 }
