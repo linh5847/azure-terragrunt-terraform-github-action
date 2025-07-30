@@ -141,3 +141,7 @@ Deployment is progressing.
 
 Deployment is successful.
 <img title="Approval" alt="Alt text" src="/images/deploy_success.png">
+
+The deployment process by first checkout the feature branch add in files. Submit back and wait for approval. Merge to either **development** if it is intending to be deployed to this environment. Alternatively, **staging** and **main** branches.
+
+<img title="All Environments" alt="Alt text" src="/images/3_envs.png">
