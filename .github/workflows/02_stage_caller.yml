@@ -1,0 +1,31 @@
+name: "caller"
+on:
+  workflow_dispatch:
+
+jobs:
+  Plan_Stage:
+    permissions: #Permission is required if enabling TFSEC == true
+      actions: read
+      contents: read
+      security-events: write
+    uses: linh5847/azure-terragrunt-terraform-github-action/.github/workflows/az_tf_plan.yml@staging
+    with:
+      path: stage
+      enable_TFSEC: true
+    secrets:
+      arm_client_id: ${{ secrets.STAGE_ARM_CLIENT_ID }}
+      arm_client_secret: ${{ secrets.STAGE_ARM_CLIENT_SECRET }}
+      arm_subscription_id: ${{ secrets.STAGE_ARM_SUBSCRIPTION_ID }}
+      arm_tenant_id: ${{ secrets.STAGE_ARM_TENANT_ID }}
+
+  Deploy_Stage:
+    needs: [Plan_Stage, Deploy_Dev]
+    uses: linh5847/azure-terragrunt-terraform-github-action/.github/workflows/az_tf_apply.yml@staging
+    with:
+      path: stage
+      gh_environment: stage
+    secrets:
+      arm_client_id: ${{ secrets.STAGE_ARM_CLIENT_ID }}
+      arm_client_secret: ${{ secrets.STAGE_ARM_CLIENT_SECRET }}
+      arm_subscription_id: ${{ secrets.STAGE_ARM_SUBSCRIPTION_ID }}
+      arm_tenant_id: ${{ secrets.STAGE_ARM_TENANT_ID }}
