@@ -136,6 +136,8 @@ Need to click on the **Review deployments**
 Select **Reject** or **Approve and deploy** options.
 <img title="Approval" alt="Alt text" src="/images/approval.png">
 
+Deployment is progressing.
 <img title="Approval" alt="Alt text" src="/images/deploy_progress.png">
 
+Deployment is successful.
 <img title="Approval" alt="Alt text" src="/images/deploy_success.png">
