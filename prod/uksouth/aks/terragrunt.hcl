@@ -56,6 +56,26 @@ inputs = {
       delegation_name           = "aks-virtualNode-delegation"
       service_delegation_name   = "Microsoft.ContainerInstance/containerGroups"
       actions                   = ["Microsoft.Network/virtualNetworks/subnets/join/action"]
+    },
+    public_security_group = {
+      enabled             = true
+      security_group_name = "prod-publicSecurityGroup"
+    },
+    public_security_group_rule = {
+      enabled                      = true
+      name                         = "prod-publicSGegressRules"
+      priority                     = 100
+      direction                    = "Outbound"
+      access                       = "Allow"
+      protocol                     = "*"
+      source_port_range = ""
+      source_port_ranges           = ["*"]
+      destination_port_range = ""
+      destination_port_ranges      = ["*"]
+      source_address_prefix = ""
+      source_address_prefixes      = ["*"]
+      destination_address_prefix = ""
+      destination_address_prefixes = ["*"]
     }
   }
 }
