@@ -26,7 +26,7 @@ inputs = {
   config = {
     resource_group = {
       enabled             = true
-      resource_group_name = "dev-resource-group"
+      resource_group_name = "dev-rg"
       location            = "uksouth"
     },
     virtual_network = {
@@ -59,7 +59,23 @@ inputs = {
     },
     public_security_group = {
       enabled             = true
-      security_group_name = "publicSG"
+      security_group_name = "dev-publicSecurityGroup"
+    },
+    public_security_group_rule = {
+      enabled                      = true
+      name                         = "dev-publicSGegressRules"
+      priority                     = 100
+      direction                    = "Outbound"
+      access                       = "Allow"
+      protocol                     = "*"
+      source_port_range = ""
+      source_port_ranges           = ["*"]
+      destination_port_range = ""
+      destination_port_ranges      = ["*"]
+      source_address_prefix = ""
+      source_address_prefixes      = ["*"]
+      destination_address_prefix = ""
+      destination_address_prefixes = ["*"]
     }
   }
 }

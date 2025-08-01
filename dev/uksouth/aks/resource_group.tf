@@ -1,4 +1,4 @@
-module "azure-resource-group" {
+module "azure_resource_group" {
   source = "../../../modules/resource_group"
 
   enabled             = var.config.resource_group.enabled
