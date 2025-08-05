@@ -63,3 +63,6 @@ For testing purposes. I deliberately comment out the following line in **root.hc
 #dynamodb_table = "${local.environment}-${local.project_name}-tf-locks"
 
 It is recommend to keep the terraform state file with lock mechanic so that it is safe when multiple engineers are operate at the same time.
+
+## Instruction
+[Link to instruction in INSTRUCTION.md](INSTRUCTION.md)
