@@ -1,4 +1,4 @@
-name: "01_dev_caller"
+name: "dev_caller"
 on:
   workflow_dispatch:
   push:

@@ -9,27 +9,15 @@ on:
       - '!main'
 
 jobs:
-  Plan_Dev:
+  validate-build:
     permissions: #Permission is required if enabling TFSEC == true
       actions: read
       contents: read
       security-events: write
-    uses: linh5847/azure-terragrunt-terraform-github-action/.github/workflows/az_tf_plan.yml@v1
+    uses: linh5847/azure-terragrunt-terraform-github-action/.github/workflows/az_tf_plan.yml@8b035d2e70696e4a080e573f8f82d2a3a9621cbd # Required a first feature branch git ref
     with:
       path: dev ## Path to terraform root module (Required)
       enable_TFSEC: true ## (Optional)  Enable TFSEC IaC scans (Private repo requires GitHub enterprise)
-    secrets:
-      arm_client_id: ${{ secrets.DEV_ARM_CLIENT_ID }} ## ARM Client ID
-      arm_client_secret: ${{ secrets.DEV_ARM_CLIENT_SECRET }} ## ARM Client Secret
-      arm_subscription_id: ${{ secrets.DEV_ARM_SUBSCRIPTION_ID }} ## ARM Subscription ID
-      arm_tenant_id: ${{ secrets.DEV_ARM_TENANT_ID }} ## ARM Tenant ID
-
-  Deploy_Dev:
-    needs: Plan_Dev
-    uses: linh5847/azure-terragrunt-terraform-github-action/.github/workflows/az_tf_apply.yml@development
-    with:
-      path: dev ## Path to terraform root module (Required)
-      gh_environment: dev ## GH Environment. Default=null - (Optional)
     secrets:
       arm_client_id: ${{ secrets.DEV_ARM_CLIENT_ID }} ## ARM Client ID
       arm_client_secret: ${{ secrets.DEV_ARM_CLIENT_SECRET }} ## ARM Client Secret
