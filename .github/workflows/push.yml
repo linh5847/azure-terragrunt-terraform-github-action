@@ -16,10 +16,7 @@ jobs:
       security-events: write
     uses: linh5847/azure-terragrunt-terraform-github-action/.github/workflows/az_tf_plan.yml@v1
     with:
-      path:  ## Path to terraform root module (Required)
-        - dev
-        - stage
-        - prod
+      path: dev ## Path to terraform root module (Required)
       enable_TFSEC: true ## (Optional)  Enable TFSEC IaC scans (Private repo requires GitHub enterprise)
     secrets:
       arm_client_id: ${{ secrets.DEV_ARM_CLIENT_ID }} ## ARM Client ID
