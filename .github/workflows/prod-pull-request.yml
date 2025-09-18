@@ -1,4 +1,4 @@
-name: "Push to Feature Branch"
+name: "Push to Feature Branch and create pull request"
 on:
   workflow_dispatch:
   push:
@@ -8,13 +8,19 @@ on:
       - '!stage'
       - '!main'
 
+  pull_request:
+    branches:
+      - develop
+      - stage
+      - main
+
 jobs:
   validate-build:
     permissions: #Permission is required if enabling TFSEC == true
       actions: read
       contents: read
       security-events: write
-    uses: linh5847/azure-terragrunt-terraform-github-action/.github/workflows/az_tf_plan.yml@8b035d2e70696e4a080e573f8f82d2a3a9621cbd # Required a first feature branch git ref
+    uses: ./.github/workflows/az_tf_plan.yml
     with:
       path: prod ## Path to terraform root module (Required)
       enable_TFSEC: true ## (Optional)  Enable TFSEC IaC scans (Private repo requires GitHub enterprise)

@@ -1,4 +1,4 @@
-name: "Push to Feature Branch"
+name: "Push to Feature Branch and create pull request"
 on:
   workflow_dispatch:
   push:
@@ -22,7 +22,7 @@ jobs:
       security-events: write
     uses: ./.github/workflows/az_tf_plan.yml
     with:
-      path: dev ## Path to terraform root module (Required)
+      path: stage ## Path to terraform root module (Required)
       enable_TFSEC: true ## (Optional)  Enable TFSEC IaC scans (Private repo requires GitHub enterprise)
     secrets:
       arm_client_id: ${{ secrets.DEV_ARM_CLIENT_ID }} ## ARM Client ID
