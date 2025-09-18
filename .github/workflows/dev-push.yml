@@ -8,6 +8,12 @@ on:
       - '!stage'
       - '!main'
 
+  pull_request:
+    branches:
+      - develop
+      - stage
+      - main
+
 jobs:
   validate-build:
     permissions: #Permission is required if enabling TFSEC == true
