@@ -1,9 +1,9 @@
-name: "01_dev_caller"
+name: "dev_caller"
 on:
   workflow_dispatch:
   push:
     branches:
-      - development
+      - develop
 
 jobs:
   Plan_Dev:
@@ -11,7 +11,7 @@ jobs:
       actions: read
       contents: read
       security-events: write
-    uses: linh5847/azure-terragrunt-terraform-github-action/.github/workflows/az_tf_plan.yml@development # @development means github branch
+    uses: linh5847/azure-terragrunt-terraform-github-action/.github/workflows/az_tf_plan.yml@develop # @development means github branch
     with:
       path: dev ## Path to terraform root module (Required)
       enable_TFSEC: true ## (Optional)  Enable TFSEC IaC scans (Private repo requires GitHub enterprise)
@@ -23,7 +23,7 @@ jobs:
 
   Deploy_Dev:
     needs: Plan_Dev
-    uses: linh5847/azure-terragrunt-terraform-github-action/.github/workflows/az_tf_apply.yml@development
+    uses: linh5847/azure-terragrunt-terraform-github-action/.github/workflows/az_tf_apply.yml@develop
     with:
       path: dev ## Path to terraform root module (Required)
       gh_environment: dev ## GH Environment. Default=null - (Optional)

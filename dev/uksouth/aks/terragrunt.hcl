@@ -37,7 +37,7 @@ inputs = {
     aks_node_subnet = {
       enabled     = true
       subnet_name = "dev-aks-node-subnet"
-      subnet_cidr = ["10.10.32.0/21", "10.10.40.0/21", "10.10.48.0/21", "10.10.56.0/21"]
+      subnet_cidr = ["10.10.32.0/21", "10.10.40.0/21", "10.10.48.0/21", "10.10.56.0/21", "10.10.64.0/21"]
     },
     aks_apiserver_subnet = {
       enabled                   = true

@@ -1,4 +1,4 @@
-name: "02_stage_caller"
+name: "stage_caller"
 on:
   workflow_dispatch:
   push:
